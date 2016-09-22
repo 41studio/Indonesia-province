@@ -1,5 +1,7 @@
 defmodule IndonesiaProvinces.Province do
   use IndonesiaProvinces.Web, :model
+  alias IndonesiaProvinces.Province
+  alias IndonesiaProvinces.Repo
 
   schema "provinces" do
     field :name, :string
@@ -24,7 +26,7 @@ defmodule IndonesiaProvinces.Province do
   end
 
   def get_all_with_cities do
-    IndonesiaProvinces.Repo.all(from p in IndonesiaProvinces.Province, preload: [:cities])
+    Repo.all(from p in Province, preload: [:cities])
   end
 
 end
